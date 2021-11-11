@@ -13,7 +13,7 @@ void main(List<String> arguments) {
 
   var numberGenerated = rndm.nextInt(99);
 
-
+  int score = 0;
 
   while(true){
     var nextNumberGenerate = rndm.nextInt(99) +1;
@@ -23,15 +23,17 @@ void main(List<String> arguments) {
     var userChoice = stdin.readLineSync(encoding: utf8);
 
     if(userChoice == "h" && nextNumberGenerate > numberGenerated){
+      score += 1;
       print(nextNumberGenerate);
       numberGenerated = nextNumberGenerate;
     }else if (userChoice == "l" && nextNumberGenerate < numberGenerated) {
+      score += 1;
       print(nextNumberGenerate);
       numberGenerated = nextNumberGenerate;
     }else if(nextNumberGenerate == numberGenerated){
       print("Yay BONUS!!!! ${numberGenerated}");
     }else {
-      print("Game over!  ${numberGenerated} nexted ${nextNumberGenerate}");
+      print("Game over!  ${numberGenerated} the next one was ${nextNumberGenerate} . Your score ${score} .. Keep going ${userName} ;)");
       break;
     }
 
